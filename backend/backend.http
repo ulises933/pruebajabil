@@ -1,0 +1,131 @@
+@backend_HostAddress = http://localhost:5260
+
+### ===== ENDPOINTS DE DIRECTORES =====
+
+### Obtener todos los directores
+GET {{backend_HostAddress}}/api/director
+Accept: application/json
+
+###
+
+### Obtener director por ID
+GET {{backend_HostAddress}}/api/director/1
+Accept: application/json
+
+###
+
+### Crear nuevo director
+POST {{backend_HostAddress}}/api/director
+Content-Type: application/json
+
+{
+  "name": "Christopher Nolan",
+  "nationality": "Estadounidense",
+  "age": 53,
+  "active": true
+}
+
+###
+
+### Actualizar director
+PUT {{backend_HostAddress}}/api/director/1
+Content-Type: application/json
+
+{
+  "name": "Christopher Nolan",
+  "nationality": "Británico",
+  "age": 54,
+  "active": true
+}
+
+###
+
+### Eliminar director (soft delete)
+DELETE {{backend_HostAddress}}/api/director/1
+
+###
+
+### ===== ENDPOINTS DE PELÍCULAS =====
+
+### Obtener todas las películas
+GET {{backend_HostAddress}}/api/movie
+Accept: application/json
+
+###
+
+### Obtener película por ID
+GET {{backend_HostAddress}}/api/movie/1
+Accept: application/json
+
+###
+
+### Obtener películas por director
+GET {{backend_HostAddress}}/api/movie/director/1
+Accept: application/json
+
+###
+
+### Crear nueva película
+POST {{backend_HostAddress}}/api/movie
+Content-Type: application/json
+
+{
+  "name": "Inception",
+  "releaseYear": "2010-07-16",
+  "gender": "Ciencia Ficción",
+  "duration": "02:28:00",
+  "fkDirector": 1
+}
+
+###
+
+### Actualizar película
+PUT {{backend_HostAddress}}/api/movie/1
+Content-Type: application/json
+
+{
+  "name": "Inception",
+  "releaseYear": "2010-07-16",
+  "gender": "Ciencia Ficción",
+  "duration": "02:28:00",
+  "fkDirector": 1
+}
+
+###
+
+### Eliminar película
+DELETE {{backend_HostAddress}}/api/movie/1
+
+###
+
+### ===== EJEMPLOS ADICIONALES =====
+
+### Crear director Quentin Tarantino
+POST {{backend_HostAddress}}/api/director
+Content-Type: application/json
+
+{
+  "name": "Quentin Tarantino",
+  "nationality": "Estadounidense",
+  "age": 60,
+  "active": true
+}
+
+###
+
+### Crear película Pulp Fiction
+POST {{backend_HostAddress}}/api/movie
+Content-Type: application/json
+
+{
+  "name": "Pulp Fiction",
+  "releaseYear": "1994-10-14",
+  "gender": "Crimen",
+  "duration": "02:34:00",
+  "fkDirector": 2
+}
+
+###
+
+### Obtener Swagger UI
+GET {{backend_HostAddress}}/swagger
