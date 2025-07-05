@@ -137,3 +137,4 @@ C:\Users\Lenovo\Documents\pruebajabil\backend\obj\Debug\net8.0\refint\backend.dl
 C:\Users\Lenovo\Documents\pruebajabil\backend\obj\Debug\net8.0\backend.pdb
 C:\Users\Lenovo\Documents\pruebajabil\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 C:\Users\Lenovo\Documents\pruebajabil\backend\obj\Debug\net8.0\ref\backend.dll
+C:\Users\Lenovo\Documents\pruebajabil\backend\obj\Debug\net8.0\backend.sourcelink.json

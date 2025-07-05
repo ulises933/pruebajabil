@@ -1,10 +1,4 @@
-import {
-  AngularNodeAppEngine,
-  createNodeRequestHandler,
-  isMainModule,
-  writeResponseToNodeResponse,
-} from '@angular/ssr';
-import express from 'express';
+import * as express from 'express';
 import { existsSync } from 'fs';
 import { join } from 'path';
 
@@ -16,14 +10,8 @@ const INDEX_HTML = existsSync(join(DIST_FOLDER, 'index.original.html'))
 function app(): express.Express {
   const server = express();
   server.use(express.static(DIST_FOLDER, { maxAge: '1y' }));
-  server.all('*', async (req, res) => {
-    await writeResponseToNodeResponse(
-      res,
-      await createNodeRequestHandler({
-        build: AngularNodeAppEngine,
-        indexHtml: INDEX_HTML,
-      })(req, res)
-    );
+  server.all('*', (req: any, res: any) => {
+    res.sendFile(join(DIST_FOLDER, INDEX_HTML));
   });
   return server;
 }
@@ -36,6 +24,4 @@ function run(): void {
   });
 }
 
-if (isMainModule(import.meta)) {
-  run();
-}
+run();
